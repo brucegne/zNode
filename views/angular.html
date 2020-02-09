@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-route.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+<body ng-app="myApp">
+
+<p><a href="#/!">Main</a></p>
+
+<a href="#!mongo">MongoDB</a>
+<a href="#!paris">RedisDB</a>
+
+<p>Click on the links.</p>
+
+<div ng-view></div>
+  
+<script>
+var app = angular.module("myApp", ["ngRoute"]);
+app.config(function($routeProvider) {
+    $routeProvider
+    .when("/", {
+        controlller: "myCtrl",
+        template : "<h3>Mongo JSON</h3><p>{{ basis | json }}</p>",
+    })
+    .when("/mongo", {
+        controlller: "londonCtrl",
+        template : "<h3>Mongo JSON</h3><p>{{ basis | json }}</p>",
+    })
+    .when("/paris", {
+        template : "<h3>Redis JSON</h3><p>{{ basis | json }}</p>",
+        controller : "parisCtrl",
+    });
+});
+app.controller('myCtrl', function($scope, $http) {
+  $http.get("mjson")
+  .then(function(response) {
+    $scope.basis = response.data.records;
+  });
+  
+});app.controller("londonCtrl", function ($scope,$http) {
+    $http.get("/all")
+    .then(function (response) {
+        $scope.basis = response.data;
+    });
+
+});app.controller("parisCtrl", function ($scope,$http) {
+    $http.get("/all")
+    .then(function (response) {
+        $scope.basis = response.data;
+    });
+});
+  
+app.controller("parisXCtrl", function ($scope, $http) {
+    $scope.user = {};
+    $scope.hello = "Form Demo";
+    $scope.submit = function() {
+    $url="/json";
+        $.ajax({
+                url: $url,
+                type: 'POST',
+                contentType: 'application/json',
+                data: { json: JSON.stringify({
+                    name:"Bob",
+                    age:"13",
+                    married:"Not yet"
+                }),
+                },
+                dataType: 'json'
+            });
+            alert("json posted!");
+
+    };
+    });
+
+</script>
+</body>
+</html>
+
+
+
+
