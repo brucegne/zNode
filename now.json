@@ -33,7 +33,7 @@
       "methods": ["GET"]
     },
     {
-      "src": "/keys",
+      "src": "/mdata",
       "dest": "/index.js",
       "methods": ["GET"]
     },
