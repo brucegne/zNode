@@ -6,13 +6,6 @@ const path = require('path');
 const REDISURL="redis://redistogo:0566827014ab8c2c76bcad1ab98239a7@angler.redistogo.com:9285/"
 const rs = require('redis-url').connect(REDISURL);
 var bodyParser = require("body-parser");
-var MongoClient = require('mongodb').MongoClient;
-
-var url = "mongodb://brucegne:p2shiver@ds043368.mongolab.com:43368/";
-MongoClient.connect(url, function(err, db) {
-  if (err) throw err;
-  var dbo = db.db("demo");
-});
 
 var Airtable = require('airtable');
 var base = new Airtable({apiKey: 'keyooAs1ySDo46B4K'}).base('appOEjuG867PcJetu');
@@ -37,16 +30,7 @@ app.get('/data'), function(req,res) {
    }).eachPage(function page(records, fetchNextPage) {
     res.send(JSON.stringify(records));
   })
-}
-
-app.get('/mdata'), function(req,res) {
-  dbo.collection("contacts").find(query).toArray(function(err, result) {
-      if (err) throw err;
-      console.log(result);
-      res.send(result);
-    });
-}
-  
+}  
 
 app.get('/Data', function(req,res) {
     var mOut = {};
