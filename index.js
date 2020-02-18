@@ -18,7 +18,7 @@ app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x
 app.set('view engine', 'ejs');
 
 app.get('/', function(req,res) {
-  res.sendFile(__dirname + '/views/index.html');
+  res.sendFile(__dirname + '/views/angular.html');
 });
 
 app.get('/data'), function(req,res) {
