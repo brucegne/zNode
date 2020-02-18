@@ -35,13 +35,13 @@ app.config(function($routeProvider) {
     });
 });
 app.controller('myCtrl', function($scope, $http) {
-  $http.get("mjson")
+  $http.get("/Data")
   .then(function(response) {
     $scope.basis = response.data.records;
   });
   
 });app.controller("londonCtrl", function ($scope,$http) {
-    $http.get("/all")
+    $http.get("/data")
     .then(function (response) {
         $scope.basis = response.data;
     });
