@@ -37,13 +37,13 @@ app.config(function($routeProvider) {
 app.controller('myCtrl', function($scope, $http) {
   $http.get("/Data")
   .then(function(response) {
-    $scope.basis = response.data.records;
+    $scope.basis = response.data;
   });
   
 });app.controller("londonCtrl", function ($scope,$http) {
     $http.get("/data")
     .then(function (response) {
-        $scope.basis = response.data;
+        $scope.basis = response.data,records;
     });
 
 });app.controller("parisCtrl", function ($scope,$http) {
