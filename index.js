@@ -21,7 +21,7 @@ app.get('/xsa', function(req,res) {
   res.sendFile(__dirname + '/views/angular.html');
 });
 
-app.get('/'), function(req,res) {
+app.get('/', function(req,res) {
   base('Family').select({
     // Selecting the first 3 records in Grid view:
     maxRecords: 3,
@@ -31,8 +31,8 @@ app.get('/'), function(req,res) {
     res.render('Pages/main', {
           Family: records,
   })
-})  
-}
+})
+})
 
 app.get('/Data', function(req,res) {
     var mOut = {};
