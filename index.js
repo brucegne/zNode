@@ -3,6 +3,7 @@ const app = express();
 const fs = require('fs');
 const cors = require('cors');
 const path = require('path');
+const ejs = require('ejs');
 const REDISURL="redis://redistogo:0566827014ab8c2c76bcad1ab98239a7@angler.redistogo.com:9285/"
 const rs = require('redis-url').connect(REDISURL);
 var bodyParser = require("body-parser");
