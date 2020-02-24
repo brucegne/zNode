@@ -28,10 +28,8 @@ app.get('/', function(req,res) {
     view: "Grid view",
     sort: [{field: "Name", direction: "desc"}]
    }).eachPage(function page(records, fetchNextPage) {
-    res.render('main.ejs', {
-          Family: records,
+    res.render('main.ejs', { Family: records });
   })
-})
 })
 
 app.get('/Data', function(req,res) {
