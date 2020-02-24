@@ -17,20 +17,22 @@ app.use(bodyParser.json()); // for parsing application/json
 app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
 app.set('view engine', 'ejs');
 
-app.get('/', function(req,res) {
+app.get('/xsa', function(req,res) {
   res.sendFile(__dirname + '/views/angular.html');
 });
 
-app.get('/data'), function(req,res) {
+app.get('/'), function(req,res) {
   base('Family').select({
     // Selecting the first 3 records in Grid view:
     maxRecords: 3,
     view: "Grid view",
     sort: [{field: "Name", direction: "desc"}]
    }).eachPage(function page(records, fetchNextPage) {
-    res.send(JSON.stringify(records));
+    res.render('Pages/main', {
+          Family: records,
   })
-}  
+})  
+}
 
 app.get('/Data', function(req,res) {
     var mOut = {};
