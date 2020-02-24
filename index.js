@@ -28,7 +28,7 @@ app.get('/', function(req,res) {
     view: "Grid view",
     sort: [{field: "Name", direction: "desc"}]
    }).eachPage(function page(records, fetchNextPage) {
-    res.render('Pages/main', {
+    res.render(__dirname + '/views/Pages/main', {
           Family: records,
   })
 })
