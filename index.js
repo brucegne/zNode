@@ -18,11 +18,11 @@ app.use(bodyParser.json()); // for parsing application/json
 app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
 app.set('view engine', 'ejs');
 
-app.get('/xsa', function(req,res) {
-  res.sendFile(__dirname + '/views/angular.html');
+app.get('/', function(req,res) {
+  res.sendFile(__dirname + '/views/index.html');
 });
 
-app.get('/', function(req,res) {
+app.get('/xxx', function(req,res) {
   base('Family').select({
     // Selecting the first 3 records in Grid view:
     maxRecords: 3,
@@ -33,7 +33,7 @@ app.get('/', function(req,res) {
   })
 })
 
-app.get('/Data', function(req,res) {
+app.get('/data', function(req,res) {
     var mOut = {};
     var mRow = [];
     base('Family').select({
