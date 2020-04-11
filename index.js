@@ -35,7 +35,7 @@ app.get('/xxx', function(req,res) {
 app.get('/data', function(req,res) {
     var mOut = {};
     var mRow = [];
-    base('Contacts').select({
+    base('Family').select({
         maxRecords: 50,
         view: "Grid view"
         }).eachPage(function page(records, fetchNextPage) {
