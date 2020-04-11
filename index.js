@@ -13,7 +13,6 @@ var base = new Airtable({apiKey: 'keyooAs1ySDo46B4K'}).base('appOEjuG867PcJetu')
 
 const port = 5000;
 
-// Body parser
 app.use(bodyParser.json()); // for parsing application/json
 app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
 app.set('view engine', 'ejs');
