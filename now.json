@@ -41,6 +41,11 @@
       "src": "/test",
       "dest": "/index.js",
       "methods": ["GET"]
+    },
+    {
+      "src": "/angular",
+      "dest": "/index.js",
+      "methods": ["GET"]
     }
   ]
 }
